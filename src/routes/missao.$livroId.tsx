@@ -59,7 +59,23 @@ function Missao() {
       </div>
     );
   } else if (q.isLoading || q.isFetching) {
-    conteudo = <p className="animate-pulse text-center text-lg">🐱 Preparando sua missão sobre o livro...</p>;
+    conteudo = (
+      <div className="text-center" role="status" aria-live="polite">
+        <div className="relative mx-auto h-36 max-w-xl overflow-hidden rounded-2xl bg-secondary/70">
+          <div className="absolute inset-x-6 bottom-6 h-1 rounded-full bg-accent/30" />
+          <img
+            src="/gatinho-missao.png"
+            alt="Gatinho caminhando enquanto prepara a missão"
+            className="missao-gatinho absolute bottom-5 left-2 h-28 w-20 object-contain"
+          />
+        </div>
+        <div className="relative mt-5 h-3 overflow-hidden rounded-full bg-secondary">
+          <div className="missao-barra-carrega absolute inset-y-0 left-0 w-1/3 rounded-full bg-primary" />
+        </div>
+        <p className="mt-4 animate-pulse text-lg font-bold">🐱 Preparando sua missão...</p>
+        <p className="mt-1 text-sm text-muted-foreground">O gatinho está buscando perguntas no livro.</p>
+      </div>
+    );
   } else if (q.error || !q.data) {
     conteudo = (
       <div className="text-center">

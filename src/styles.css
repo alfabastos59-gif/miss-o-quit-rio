@@ -79,3 +79,22 @@
   border-radius: var(--radius-2xl);
   box-shadow: 0 0 24px color-mix(in oklch, var(--accent) 35%, transparent);
 }
+
+@keyframes missao-gatinho-caminha {
+  0% { left: 0.5rem; transform: translateY(2px) rotate(-2deg); }
+  50% { left: calc(100% - 5.5rem); transform: translateY(-3px) rotate(2deg); }
+  100% { left: 0.5rem; transform: translateY(2px) rotate(-2deg); }
+}
+
+@keyframes missao-barra-carrega {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.missao-gatinho {
+  animation: missao-gatinho-caminha 4.5s ease-in-out infinite;
+}
+
+.missao-barra-carrega {
+  animation: missao-barra-carrega 1.8s ease-in-out infinite;
+}
