@@ -32,8 +32,9 @@ export function partidasDo(codigo: string): Partida[] {
 }
 export function registrarPartida(codigo: string, p: Partida) {
   const t = lerTodas();
-  if ((t[codigo] ?? []).some((x) => x.livroId === p.livroId)) return;
-  t[codigo] = [...(t[codigo] ?? []), p];
+  const lista = t[codigo] ?? [];
+  const antiga = lista.find((x) => x.livroId === p.livroId);
+  t[codigo] = [...lista.filter((x) => x.livroId !== p.livroId), antiga ? { ...p, data: antiga.data } : p];
   localStorage.setItem(PARTIDAS, JSON.stringify(t));
 }
 
