@@ -29,7 +29,7 @@ export const gerarPerguntas = createServerFn({ method: "POST" })
     const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
       method: "POST",
       headers: {
-        "Lovable-API-Key": process.env.LOVABLE_API_KEY!,
+        "Lovable-API-Key": process.env['LOVABLE_API_KEY']!,
         "X-Lovable-AIG-SDK": "fetch",
         "Content-Type": "application/json",
       },
