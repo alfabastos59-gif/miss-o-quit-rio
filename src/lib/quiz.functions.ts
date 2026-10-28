@@ -14,57 +14,59 @@ export const gerarPerguntas = createServerFn({ method: "POST" })
     if (!devolveu) throw new Error("Este livro ainda não foi devolvido por você.");
     const livro = data.livros.find((l) => l.id === input.livroId)!;
 
-    const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const schema = {
+      type: "object", additionalProperties: false, required: ["perguntas"],
+      properties: { perguntas: { type: "array", items: {
+        type: "object", additionalProperties: false,
+        required: ["pergunta", "opcoes", "correta", "explicacao"],
+        properties: {
+          pergunta: { type: "string" },
+          opcoes: { type: "array", items: { type: "string" } },
+          correta: { type: "integer" },
+          explicacao: { type: "string" },
+        } } } },
+    };
+    const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
       method: "POST",
-      headers: { Authorization: `Bearer ${process.env.LOVABLE_API_KEY}`, "Content-Type": "application/json" },
+      headers: {
+        "Lovable-API-Key": process.env.LOVABLE_API_KEY!,
+        "X-Lovable-AIG-SDK": "fetch",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
-        messages: [
-          {
-            role: "system",
-            content:
-              "Você cria quizzes de leitura para alunos do ensino médio brasileiro. Escreva em português do Brasil, linguagem simples e animada. Perguntas sobre enredo, personagens, temas e autor do livro. Cada pergunta tem 4 opções e apenas uma correta.",
-          },
-          {
-            role: "user",
-            content: `Crie exatamente 6 perguntas de múltipla escolha sobre o livro "${livro.titulo}" de ${livro.autor}. Sinopse: ${livro.descricao ?? "sem sinopse"}`,
-          },
-        ],
-        tools: [
-          {
-            type: "function",
-            function: {
-              name: "quiz",
-              parameters: {
-                type: "object",
-                properties: {
-                  perguntas: {
-                    type: "array",
-                    items: {
-                      type: "object",
-                      properties: {
-                        pergunta: { type: "string" },
-                        opcoes: { type: "array", items: { type: "string" } },
-                        correta: { type: "integer", description: "índice 0-3 da opção correta" },
-                        explicacao: { type: "string" },
-                      },
-                      required: ["pergunta", "opcoes", "correta", "explicacao"],
-                    },
-                  },
-                },
-                required: ["perguntas"],
-              },
-            },
-          },
-        ],
-        tool_choice: { type: "function", function: { name: "quiz" } },
+        model: "openai/gpt-6-astra",
+        stream: true,
+        store: false,
+        reasoning: { effort: "low" },
+        instructions:
+          "Você cria quizzes de leitura para alunos do ensino médio brasileiro. Português do Brasil, linguagem simples e animada. Perguntas sobre enredo, personagens, temas e autor. Cada pergunta tem exatamente 4 opções e só uma correta; 'correta' é o índice 0-3.",
+        input: `Crie exatamente 6 perguntas de múltipla escolha sobre o livro "${livro.titulo}" de ${livro.autor}. Sinopse: ${livro.descricao ?? "sem sinopse"}`,
+        text: { format: { type: "json_schema", name: "quiz", strict: true, schema } },
       }),
     });
     if (res.status === 429) throw new Error("Muitas missões ao mesmo tempo. Tente de novo em instantes.");
     if (res.status === 402) throw new Error("Créditos de IA esgotados.");
-    if (!res.ok) throw new Error("Não foi possível criar as perguntas.");
-    const json = await res.json();
-    const args = JSON.parse(json.choices[0].message.tool_calls[0].function.arguments);
+    if (!res.ok || !res.body) throw new Error("Não foi possível criar as perguntas.");
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = "", texto = "";
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, { stream: true });
+      const linhas = buf.split("\n");
+      buf = linhas.pop() ?? "";
+      for (const l of linhas) {
+        if (!l.startsWith("data:")) continue;
+        const d = l.slice(5).trim();
+        if (!d || d === "[DONE]") continue;
+        try {
+          const ev = JSON.parse(d);
+          if (ev.type === "response.output_text.delta") texto += ev.delta;
+        } catch { /* ignora */ }
+      }
+    }
+    const args = JSON.parse(texto);
     const perguntas = (args.perguntas as Pergunta[])
       .filter((p) => p.opcoes?.length === 4 && p.correta >= 0 && p.correta < 4)
       .slice(0, 6);
