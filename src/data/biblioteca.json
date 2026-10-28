@@ -1,0 +1,417 @@
+{
+ "alunos": [
+  {
+   "id": "c40e6437-6422-4735-9a07-2cd716a03fce",
+   "nome": "Adrielly",
+   "turma": "1 º B",
+   "codigo_aluno": "ADR0007"
+  },
+  {
+   "id": "stu_1789059674936_4vidl",
+   "nome": "Allaiany",
+   "turma": "2º A",
+   "codigo_aluno": "ALL0014"
+  },
+  {
+   "id": "f0c6ebae-9d3a-42bd-9847-88c736145e04",
+   "nome": "Amilton Luan",
+   "turma": "9º B",
+   "codigo_aluno": "AMI0002"
+  },
+  {
+   "id": "alu_1",
+   "nome": "Ana Beatriz Silveira",
+   "turma": "9º Ano A",
+   "codigo_aluno": "202401"
+  },
+  {
+   "id": "5f79aabd-92e7-4e60-aaa7-deac5a4f6d9c",
+   "nome": "Clô (pedro)",
+   "turma": "9 a",
+   "codigo_aluno": "CLO0004"
+  },
+  {
+   "id": "a5736678-5fda-4863-89b5-97563dbc19be",
+   "nome": "Geisiane Alves",
+   "turma": "1 ano A",
+   "codigo_aluno": "GEI0002"
+  },
+  {
+   "id": "ea0fd93c-146d-4f43-add9-ccf2d52986be",
+   "nome": "Gustavo Oliveira",
+   "turma": "1 º INT",
+   "codigo_aluno": "GUS0001"
+  },
+  {
+   "id": "fd05af8c-632c-4b8d-b3f5-ab49e9d2bc62",
+   "nome": "jennifer freitas",
+   "turma": "3ºb",
+   "codigo_aluno": "JEN0006"
+  },
+  {
+   "id": "8c98f625-87fa-4866-95ea-25a291cde1c3",
+   "nome": "Kailan",
+   "turma": "1ºA",
+   "codigo_aluno": "KAI0009"
+  },
+  {
+   "id": "0fbd844c-14e4-4275-a3e3-db3063dff6b3",
+   "nome": "Kalil Lopes",
+   "turma": "2 º A",
+   "codigo_aluno": "KAL0003"
+  },
+  {
+   "id": "de37c66a-6c2f-4301-9844-6d34499beda2",
+   "nome": "Kemilly  Santana",
+   "turma": "2º A",
+   "codigo_aluno": "KEM0008"
+  },
+  {
+   "id": "stu_1789060054398_ioi6e",
+   "nome": "Mariana Ribeiro",
+   "turma": "2 º A",
+   "codigo_aluno": "MAR0015"
+  },
+  {
+   "id": "ff64951b-f0ba-4de7-9bf1-e8147a0b557c",
+   "nome": "Professora Thaís",
+   "turma": "turma 1000",
+   "codigo_aluno": "PRO0003"
+  },
+  {
+   "id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "nome": "Ruan Santos da Silva",
+   "turma": "1º A",
+   "codigo_aluno": "RUA0004"
+  },
+  {
+   "id": "11447773-1d14-4b49-99fd-12a605bd262c",
+   "nome": "Thalles andrey",
+   "turma": "2 º adm",
+   "codigo_aluno": "THA0005"
+  },
+  {
+   "id": "c8f48da7-d4fb-44a2-85df-ebd9118c5229",
+   "nome": "Veronica Gonçalves",
+   "turma": "1 ano A",
+   "codigo_aluno": "VER0001"
+  }
+ ],
+ "emprestimos": [
+  {
+   "id": "054161ac-7fbe-4b75-a0e7-6c28a49ad486",
+   "aluno_id": "8c98f625-87fa-4866-95ea-25a291cde1c3",
+   "livro_id": "f21cf19d-7d0e-4e09-a959-9165e0b0c7a4",
+   "codigo_aluno": "KAI0009",
+   "data_devolucao": "05/08/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "27efc959-abf8-440b-a98b-e1f4ef2c635b",
+   "aluno_id": "c8f48da7-d4fb-44a2-85df-ebd9118c5229",
+   "livro_id": "71fcb0a9-a344-46be-baff-13b7a85911a1",
+   "codigo_aluno": "VER0001",
+   "data_devolucao": "08/09/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "2b7a7e43-643b-4140-8b63-e0f3381cfb02",
+   "aluno_id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "livro_id": "bad44537-65d1-4892-8f7a-807037730ac1",
+   "codigo_aluno": "RUA0004",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "35494aa7-0ec8-4102-ac30-6aa411cc1fd2",
+   "aluno_id": null,
+   "livro_id": "7c92e6e2-505b-4e33-809d-1c11987e9386",
+   "codigo_aluno": "ELI0010",
+   "data_devolucao": "05/08/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "36501400-b4cc-4244-95fc-5fc71cede925",
+   "aluno_id": "de37c66a-6c2f-4301-9844-6d34499beda2",
+   "livro_id": "5c4fc796-9863-4bfe-ae50-e59a1673d4fe",
+   "codigo_aluno": "KEM0008",
+   "data_devolucao": "03/09/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "4f5a1d21-ddbd-4ef9-8209-0b10acf92edd",
+   "aluno_id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "livro_id": "52013781-9368-449b-9208-45c31e6e8dbc",
+   "codigo_aluno": "RUA0004",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "668e1c09-d3ba-4f5f-8d6e-3fa52801bc3f",
+   "aluno_id": "c40e6437-6422-4735-9a07-2cd716a03fce",
+   "livro_id": "93d3dcdf-c7dd-41b3-851c-9225fc5db1bc",
+   "codigo_aluno": "ADR0007",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "6bcb9556-a634-4634-9d2b-456da8dade1d",
+   "aluno_id": "ff64951b-f0ba-4de7-9bf1-e8147a0b557c",
+   "livro_id": "df210967-8c73-4250-b0a4-25745b7372b2",
+   "codigo_aluno": "PRO0003",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  },
+  {
+   "id": "7f8def96-c696-4582-9aed-a1f97ac14b84",
+   "aluno_id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "livro_id": "a44c3c0c-b18d-4dd3-9ad1-9bb178971b7c",
+   "codigo_aluno": "RUA0004",
+   "data_devolucao": "05/08/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "8840d0dd-5a70-45dc-b8ea-2e7279ee9eef",
+   "aluno_id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "livro_id": "9ab8e9e8-b2e8-489a-a3a1-a01e63b7880b",
+   "codigo_aluno": "RUA0004",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "929b1303-3ca6-40bf-bd67-ac3af17f6f2a",
+   "aluno_id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "livro_id": "77f94b78-a5d8-4d08-bf81-af47ce400ccc",
+   "codigo_aluno": "RUA0004",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "b2422a01-dbca-4d87-b82f-fd401e719363",
+   "aluno_id": "ea0fd93c-146d-4f43-add9-ccf2d52986be",
+   "livro_id": "3d533f62-9dc5-4a87-bc6e-1b15c0c45ac6",
+   "codigo_aluno": "GUS0001",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "e6a80a09-dcce-49ec-a49f-336131acb6ca",
+   "aluno_id": "ff64951b-f0ba-4de7-9bf1-e8147a0b557c",
+   "livro_id": "96d76be3-8c37-4382-b5a1-ff1e0f07ef9d",
+   "codigo_aluno": "PRO0003",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  },
+  {
+   "id": "e9148533-2800-4989-832d-92e25873ba39",
+   "aluno_id": "0fbd844c-14e4-4275-a3e3-db3063dff6b3",
+   "livro_id": "a44c3c0c-b18d-4dd3-9ad1-9bb178971b7c",
+   "codigo_aluno": "KAL0003",
+   "data_devolucao": "05/08/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "emp_1",
+   "aluno_id": "alu_1",
+   "livro_id": "livro_1",
+   "codigo_aluno": "202401",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  },
+  {
+   "id": "emp_2",
+   "aluno_id": null,
+   "livro_id": "livro_2",
+   "codigo_aluno": "202402",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  },
+  {
+   "id": "emp_3",
+   "aluno_id": null,
+   "livro_id": "livro_8",
+   "codigo_aluno": "202404",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  },
+  {
+   "id": "fc270717-ea1a-47a2-be35-43454d4712f5",
+   "aluno_id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
+   "livro_id": "7638e7ba-bba5-40da-aa3e-dcb555709087",
+   "codigo_aluno": "RUA0004",
+   "data_devolucao": "17/07/2026",
+   "status": "Devolvido"
+  },
+  {
+   "id": "l_1788892680858",
+   "aluno_id": "c8f48da7-d4fb-44a2-85df-ebd9118c5229",
+   "livro_id": "livro-1788887803313",
+   "codigo_aluno": "VER0001",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  },
+  {
+   "id": "l_1789059791654",
+   "aluno_id": "c40e6437-6422-4735-9a07-2cd716a03fce",
+   "livro_id": "8e5c48ae-beeb-469b-aa2b-39921d2711d4",
+   "codigo_aluno": "ADR0007",
+   "data_devolucao": null,
+   "status": "Emprestado"
+  }
+ ],
+ "livros": [
+  {
+   "id": "93d3dcdf-c7dd-41b3-851c-9225fc5db1bc",
+   "titulo": "70 Historinhas",
+   "autor": "Carlos Drumond de Andrade",
+   "descricao": "Lançado em 1978, 70 historinhas reúne a prosa já publicada por Drummond em outros livros. São crônicas e contos - ou “cronicontos” - em que a observação caminha junto com a fabulação, o humor roça cotovelos com o lirismo e a crítica aparece arejada pelo deboche. Treze das histórias deste livro têm crianças e adolescentes como personagens, sem que o autor se preste a infantilizá-las, pela paródia da linguagem ou pelo primarismo das ações. Pelo contrário, elas enfrentam, contestam e vencem, muitas",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/5e5d061d-eea3-4f0a-b017-548a0ffb1b5a.jpg",
+   "categoria": "Ficção",
+   "ano": 2016
+  },
+  {
+   "id": "a44c3c0c-b18d-4dd3-9ad1-9bb178971b7c",
+   "titulo": "A história do amor de Fernando e jsaura",
+   "autor": "Ariano sussuna",
+   "descricao": "A história do amor de Fernando e Isaura é uma espécie de versão brasileira de Tristão e Isolda (história imortalizada pela obra de Joseph Bédier) e. como o próprio autor declarou. lhe serviu para avaliar e exercitar as forças de que dispunha para escrever o grande romance com que vinha sonhando – o clássico Romance d’A Pedra do Reino. escrito entre 1958 e 1970. A história do amor de Fernando e Isaura é uma paixão proibida. Um amor tão verdadeiro e intenso que. impedido de ser vivenciado em toda",
+   "capa_url": "https://m.media-amazon.com/images/I/91r11lYNqhL.jpg",
+   "categoria": "Romance",
+   "ano": 2021
+  },
+  {
+   "id": "livro-1788887803313",
+   "titulo": "Análise Linguística nos gêneros textuais",
+   "autor": "Teresa Cristiana Wachowicz",
+   "descricao": "O propósito deste livro é contribuir para que o professor - e outros profissionais que trabalham com a língua - desenvolvam uma prática reflexiva sobre seu uso e estruturas subiacentes.\nAfinal, fazer reflexão linguistica significa questionar atos, ideias e linguagens, inclusive as presentes na escola.\nAtravés do trabalho com gêneros textuais, a proposta é que se resgate o olhar sobre formas linguísticas, no fino pressuposto de que há estruturas que sustentam opções textuais e discursivas.\nCom isso, o trabalho com unidades gramaticais, que fazem a proposta da análise linguística, ganha obietividade e concretude na funcionalidade dos gêneros textuais.\nProfessores. educadores e outros profissionais da língua têm aqui um instrumento de trabalho para além da teoria - em análise de textos concretos da nossa experiência de letramento.",
+   "capa_url": "https://m.media-amazon.com/images/I/41J0qr8I0+L._SY445_SX342_ML2_.jpg",
+   "categoria": "Literatura Brasileira",
+   "ano": 2012
+  },
+  {
+   "id": "96d76be3-8c37-4382-b5a1-ff1e0f07ef9d",
+   "titulo": "Caixa de Desejo",
+   "autor": "Ana Cristina Melo",
+   "descricao": "Marília tem onze anos, é muito introvertida e não tem amigos. Ela mora com os pais, os avós maternos e um tio, mas tem uma ligação muito forte com a avó paterna, a vó Laurinda, que vive em outra cidade. Quando vó Laurinda morre, deixa para Marília uma caixa “mágica” onde ela deve guardar seus desejos para nunca se esquecer deles. Com esse recurso Marília aprende a lidar com os conflitos de forma positiva, superando os problemas de relacionamento na escola e até conquistando o primeiro amor. Com",
+   "capa_url": "https://m.media-amazon.com/images/I/A1+zhETRTfL._AC_UF1000,1000_QL80_.jpg",
+   "categoria": "Ficção literária",
+   "ano": 2014
+  },
+  {
+   "id": "8e5c48ae-beeb-469b-aa2b-39921d2711d4",
+   "titulo": "Continente 2: O Tempo E O Vento",
+   "autor": "Erico Verissimo",
+   "descricao": "Cecília é uma secretária competente. Depois que seu patrão sai do consultório dentário ela guarda todo o equipamento, desliga os aparelhos, tranca a porta e vai embora. Doutor Marcos é um homem tranquilo, e o trabalho com ele é sem sobressaltos. Hoje ele e a mulher vão jantar em casa de amigos. Fato raro, pensa a secretária. Em geral, doutor Marcos e a mulher ficam em casa. Estranho, para um casal jovem como eles... Cecília gosta de trabalhar no consultório. Tudo é sempre tão perfeitamente previ",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/94ce6c92-083e-4773-9d45-60fff8c865bc.jpg",
+   "categoria": "Literatura Brasileira",
+   "ano": 1999
+  },
+  {
+   "id": "77f94b78-a5d8-4d08-bf81-af47ce400ccc",
+   "titulo": "Dez   Dias  no  Manicômio",
+   "autor": "Nellie Bly",
+   "descricao": "Em 1887, determinada a revelar o que se escondia por trás dos muros de um asilo psiquiátrico feminino, a jornalista Nellie Bly fingiu-se de louca para ser internada no manicômio da Ilha de Blackwell, em Nova York. Durante dez dias, ela viveu na pele a violência, o abandono e os abusos sofridos pelas pacientes, muitas delas perfeitamente sãs, mas silenciadas por pobreza, imigração ou simples desvio das normas sociais. Misturando relato pessoal e investigação jornalística, Nellie descreve condiçõe",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/32db46b7-6405-4e74-82ea-96639420e220.jpg",
+   "categoria": "Ciências",
+   "ano": 2020
+  },
+  {
+   "id": "livro_1",
+   "titulo": "Dom Casmurro",
+   "autor": "Machado de Assis",
+   "descricao": "Bento Santiago narra em primeira pessoa suas memórias de juventude no Rio de Janeiro e sua paixão por Capitu, levantando uma das maiores dúvidas da literatura.",
+   "capa_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&auto=format&fit=crop&q=80",
+   "categoria": "Literatura Brasileira",
+   "ano": 1899
+  },
+  {
+   "id": "bad44537-65d1-4892-8f7a-807037730ac1",
+   "titulo": "Fuga da Biblioteca Do Sr Lemoncello",
+   "autor": "Chris Grabenstein",
+   "descricao": "Em Fuga da biblioteca do Sr. Lemoncello , conhecemos Kyle, um menino que é fanático por todos os tipos de jogos - de tabuleiro, palavras-cruzadas e principalmente videogames e que vive na sombra dos dois irmãos, um atleta e outro um gênio. Seu ídolo, Luigi Lemoncello, o mais famoso, criativo e excêntrico criador de jogos, também é o responsável pelo projeto da nova biblioteca da cidade. E o melhor: o próprio Sr. Lemoncello estará presente na especial e exclusiva noite de inauguração, na qual ape",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/fc2ff529-ee4b-43b9-942f-ad5e4f01c97d.jpg",
+   "categoria": "Juvenil",
+   "ano": 2016
+  },
+  {
+   "id": "5c4fc796-9863-4bfe-ae50-e59a1673d4fe",
+   "titulo": "NANOOK Ele Está Chegando",
+   "autor": "Gustavo Bernardo",
+   "descricao": "Um rapaz de 15 anos, chamado Bernardo, é levado pela mãe a uma clínica psiquiátrica em Ouro Preto, Minas Gerais. Ela acredita que seu filho não é normal, afinal ele só começou a falar depois dos 4 anos de idade e numa língua irreconhecível. Enquanto o diretor da clínica entrevista a mãe de Bernardo, ele entra em surto e começa a quebrar tudo. Quando finalmente é contido pelos enfermeiros, faz uma declaração enigmática: “Eu só queria avisar: Nanook está chegando”. O médico o interna. Ao estudar o",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/4313a1a6-7083-407a-a3e3-29555cf78cc2.jpg",
+   "categoria": "Ficção",
+   "ano": 2018
+  },
+  {
+   "id": "f21cf19d-7d0e-4e09-a959-9165e0b0c7a4",
+   "titulo": "Natureza em alerta",
+   "autor": "Governo do Estado da Bahia",
+   "descricao": "Obra do acervo da Biblioteca Maria Quitéria. Título: Natureza em alerta, por Governo do Estado da Bahia.",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/81ddc873-7fc6-4a88-b553-3079449149a7.jpg",
+   "categoria": "Literatura Brasileira",
+   "ano": 2020
+  },
+  {
+   "id": "3d533f62-9dc5-4a87-bc6e-1b15c0c45ac6",
+   "titulo": "O Bosque das Ilusões Perdidas",
+   "autor": "Alain -Fournier ; Bernardo Ajzenberg",
+   "descricao": "Obra do acervo da Biblioteca Maria Quitéria. Título: O Bosque das Ilusões Perdidas, por Alain -Fournier ; Bernardo Ajzenberg.",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/830c0950-4a81-47b1-809c-6e0385f4f823.jpg",
+   "categoria": "Literatura Brasileira",
+   "ano": 2018
+  },
+  {
+   "id": "7638e7ba-bba5-40da-aa3e-dcb555709087",
+   "titulo": "O Cão dos  Baskervilles",
+   "autor": "Arthur Conan Doyle",
+   "descricao": "O DETETIVE MAIS FAMOSO DE TODOS OS TEMPOS, Sherlock Holmes, ao lado do Dr. Watson, investiga a misteriosa morte, em um pântano, de Sir Charles Baskerville, nesta que é uma das mais populares histórias do detetive, adaptada várias vezes para o cinema e a TV. No centro do caso, um suposto cão assassino e sobrenatural, que assombra a família Baskerville, cujo último herdeiro teme pela vida, depois de receber um enigmático bilhete. Com muitas pistas desencontradas e uma aterradora mansão com mais de",
+   "capa_url": "https://m.media-amazon.com/images/I/619kzsBXy8L._SY425_.jpg",
+   "categoria": "Ficção literária",
+   "ano": 2018
+  },
+  {
+   "id": "9ab8e9e8-b2e8-489a-a3a1-a01e63b7880b",
+   "titulo": "O Mistério do 5 Estrelas",
+   "autor": "Marcos Rey",
+   "descricao": "O que você faria se visse um cadáver embaixo de uma cama? Léo, mensageiro do Emperor Park Hotel, um cinco estrelas que hospeda muita gente poderosa, viu um no quarto 222.\n\nEle decide começar a investigar e passa a viver dias cheios de suspense e surpresas. Logo, se viu envolvido numa trama bastante perigosa, arquitetada por pessoas inescrupulosas.\n\nEste clássico da literatura juvenil é de tirar o fôlego da primeira à última página",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/f15db58c-e196-4e9b-b3d9-60d13b8ef442.jpg",
+   "categoria": "Ficção",
+   "ano": 2024
+  },
+  {
+   "id": "livro_2",
+   "titulo": "O Pequeno Príncipe",
+   "autor": "Antoine de Saint-Exupéry",
+   "descricao": "Um piloto perdido no deserto do Saara encontra um jovem príncipe vindo de um asteroide minúsculo e aprende lições profundas sobre amizade e o amor.",
+   "capa_url": "https://d1b6q258gtjyuy.cloudfront.net/Custom/Content/Products/31/94/3194_o-pequeno-principe-capa-azul_z5_638481876188045635.webp",
+   "categoria": "Infantojuvenil",
+   "ano": 1943
+  },
+  {
+   "id": "52013781-9368-449b-9208-45c31e6e8dbc",
+   "titulo": "Se Eu Não Te Amasse Tanto Assim",
+   "autor": "Paulo Sérgio Vale",
+   "descricao": "Paulo Sergio Valle imprime nos contos a sua marca de escritor, o seu estilo, a sua busca pelo sentido da vida, características de sua mente inquieta e questionadora.",
+   "capa_url": "https://pdwgbhmktifznyguctaf.supabase.co/storage/v1/object/public/capas/65e0840a-0ac1-4d55-8495-fc2433c0f150.jpg",
+   "categoria": "Outros",
+   "ano": 2019
+  },
+  {
+   "id": "df210967-8c73-4250-b0a4-25745b7372b2",
+   "titulo": "Um Parafuso a Menos",
+   "autor": "Fabrício Carpinejar",
+   "descricao": "Esta coleção apresenta as lembranças de infância de Fabrício Carpinejar. Nas pequenas histórias, conta sobre a formação de seu olhar de poeta, tomado pelo espanto e pela simplicidade das crianças. Em Um parafuso a mais, o menino observador relata seus primeiros passos amparados pelo avô, a paixão pela professora, a folia com os irmãos e um remédio salvador que tomou, administrado pelo irmão mais velho, aos quatros anos. Desde lá, resolveu-se o parafuso a menos. Ou seria um parafuso a mais?",
+   "capa_url": "https://cdn.awsli.com.br/2500x2500/899/899421/produto/34458522/2c48800a12.jpg",
+   "categoria": "Crônicas",
+   "ano": 2014
+  },
+  {
+   "id": "7c92e6e2-505b-4e33-809d-1c11987e9386",
+   "titulo": "Urupês",
+   "autor": "Monteiro Lobato",
+   "descricao": "Considerado como o verdadeiro precursor da ficção modernista brasileira, URUPÊS, o primeiro livro de Lobato, é um livro fora do comum: tanto do ponto de vista literário quanto histórico. Marcou época e foi também um marco divisório em nossa literatura nacionalista. Quando nossos escritores voltavam-se para a Europa, copiando seus moldes e seus estilos, Lobato, com Urupês, volta-se corajosamente para o Brasil, para as coisas e problemas brasileiros, falando de nossa terra, de nosso povo, de nossa",
+   "capa_url": "https://m.media-amazon.com/images/I/61mN7LH5qML._SY385_.jpg",
+   "categoria": "Ficção literária",
+   "ano": 2005
+  }
+ ]
+}
