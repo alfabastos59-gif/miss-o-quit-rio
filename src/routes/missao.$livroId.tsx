@@ -105,7 +105,6 @@ function Missao() {
                   setEscolha(i);
                   const novo = acertos + (i === p.correta ? 1 : 0);
                   setAcertos(novo);
-                  registrarPartida(aluno.codigo_aluno, { livroId, acertos: novo, pontos: novo * PONTOS_POR_ACERTO, data: new Date().toISOString() });
                 }}
                 className={`rounded-xl px-4 py-3 text-left font-semibold transition ${cor}`}
               >{String.fromCharCode(65 + i)}) {o}</button>
@@ -116,7 +115,22 @@ function Missao() {
           <div className="mt-5">
             <p className="text-muted-foreground">{escolha === p.correta ? "✅ Acertou! " : "❌ Quase! "}{p.explicacao}</p>
             <button
-              onClick={() => { if (atual + 1 >= TOTAL_PERGUNTAS) setFim(true); else { setAtual(atual + 1); setEscolha(null); } }}
+              onClick={() => {
+                if (atual + 1 >= TOTAL_PERGUNTAS) {
+                  // A partida só passa a contar depois que o aluno responde tudo.
+                  // Assim, sair ou atualizar a página no meio não consome a missão.
+                  registrarPartida(aluno.codigo_aluno, {
+                    livroId,
+                    acertos,
+                    pontos: acertos * PONTOS_POR_ACERTO,
+                    data: new Date().toISOString(),
+                  });
+                  setFim(true);
+                } else {
+                  setAtual(atual + 1);
+                  setEscolha(null);
+                }
+              }}
               className="mt-4 rounded-xl bg-primary px-6 py-2 font-bold text-primary-foreground"
             >{atual + 1 >= TOTAL_PERGUNTAS ? "Ver resultado" : "Próxima →"}</button>
           </div>
