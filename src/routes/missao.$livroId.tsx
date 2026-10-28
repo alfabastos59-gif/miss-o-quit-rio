@@ -1,9 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { gerarPerguntas } from "@/lib/quiz.functions";
-import { livroPorId, PONTOS_POR_ACERTO, TOTAL_PERGUNTAS } from "@/lib/aluno";
+import { KEY, livroPorId, partidasDo, PONTOS_POR_ACERTO, registrarPartida, situacao, TOTAL_PERGUNTAS } from "@/lib/aluno";
 import { Cabecalho, useAluno } from "./aluno";
 
 export const Route = createFileRoute("/missao/$livroId")({
@@ -23,11 +23,13 @@ function Missao() {
   const { livroId } = Route.useParams();
   const aluno = useAluno();
   const livro = livroPorId(livroId);
+  const navigate = useNavigate();
+  const [liberado] = useState(() => !!aluno && situacao(partidasDo(aluno.codigo_aluno), livroId).podeJogar);
   const gerar = useServerFn(gerarPerguntas);
   const q = useQuery({
     queryKey: ["quiz", livroId, aluno?.codigo_aluno],
     queryFn: () => gerar({ data: { livroId, codigo: aluno!.codigo_aluno } }),
-    enabled: !!aluno,
+    enabled: !!aluno && liberado,
     staleTime: Infinity,
     retry: false,
   });
@@ -36,12 +38,34 @@ function Missao() {
   const [acertos, setAcertos] = useState(0);
   const [fim, setFim] = useState(false);
 
+  const [restante, setRestante] = useState(15);
+  const encerrar = () => { localStorage.removeItem(KEY); navigate({ to: "/", replace: true }); };
+  useEffect(() => {
+    if (!fim) return;
+    if (restante <= 0) { encerrar(); return; }
+    const t = setTimeout(() => setRestante((r) => r - 1), 1000);
+    return () => clearTimeout(t);
+  }, [fim, restante]);
+
   if (!aluno || !livro) return null;
 
-  const reiniciar = () => { setAtual(0); setEscolha(null); setAcertos(0); setFim(false); q.refetch(); };
+  const concluir = (totalAcertos: number) => {
+    registrarPartida(aluno.codigo_aluno, {
+      livroId, acertos: totalAcertos, pontos: totalAcertos * PONTOS_POR_ACERTO, data: new Date().toISOString(),
+    });
+    setFim(true);
+  };
 
   let conteudo;
-  if (q.isLoading || q.isFetching) {
+  if (!liberado && !fim) {
+    conteudo = (
+      <div className="text-center">
+        <div className="text-5xl">🔒</div>
+        <p className="mt-3">Esta missão não está disponível agora. Cada livro vale uma única missão, e a próxima libera 5 dias após a última.</p>
+        <Link to="/aluno" className="mt-4 inline-block rounded-xl bg-primary px-5 py-2 font-bold text-primary-foreground">Voltar</Link>
+      </div>
+    );
+  } else if (q.isLoading || q.isFetching) {
     conteudo = <p className="animate-pulse text-center text-lg">🐱 Preparando sua missão sobre o livro...</p>;
   } else if (q.error || !q.data) {
     conteudo = (
@@ -58,10 +82,10 @@ function Missao() {
         <h2 className="mt-3 text-3xl font-extrabold">Missão concluída!</h2>
         <p className="mt-2">Você acertou {acertos} de {TOTAL_PERGUNTAS}</p>
         <p className="mt-1 font-display text-5xl font-extrabold text-primary">{pontos} pts</p>
-        <div className="mt-6 flex justify-center gap-3">
-          <button onClick={reiniciar} className="rounded-xl bg-primary px-5 py-2 font-bold text-primary-foreground">Jogar de novo</button>
-          <Link to="/aluno" className="rounded-xl bg-secondary px-5 py-2 font-bold">Escolher outro livro</Link>
-        </div>
+        <p className="mt-4 text-sm text-muted-foreground">Pontos registrados! Sua próxima missão, com outro livro, libera em 5 dias.</p>
+        <button onClick={encerrar} className="mt-5 rounded-xl bg-primary px-6 py-2 font-bold text-primary-foreground">
+          Encerrar e passar a vez ({restante}s)
+        </button>
       </div>
     );
   } else {
@@ -94,7 +118,7 @@ function Missao() {
           <div className="mt-5">
             <p className="text-muted-foreground">{escolha === p.correta ? "✅ Acertou! " : "❌ Quase! "}{p.explicacao}</p>
             <button
-              onClick={() => { if (atual + 1 >= TOTAL_PERGUNTAS) setFim(true); else { setAtual(atual + 1); setEscolha(null); } }}
+              onClick={() => { if (atual + 1 >= TOTAL_PERGUNTAS) concluir(acertos); else { setAtual(atual + 1); setEscolha(null); } }}
               className="mt-4 rounded-xl bg-primary px-6 py-2 font-bold text-primary-foreground"
             >{atual + 1 >= TOTAL_PERGUNTAS ? "Ver resultado" : "Próxima →"}</button>
           </div>
