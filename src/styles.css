@@ -98,3 +98,83 @@
 .missao-barra-carrega {
   animation: missao-barra-carrega 1.8s ease-in-out infinite;
 }
+
+.ranking-page {
+  background:
+    radial-gradient(circle at 15% 15%, rgb(37 99 235 / 35%), transparent 25%),
+    radial-gradient(circle at 85% 35%, rgb(8 145 178 / 30%), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgb(30 64 175 / 40%), transparent 35%),
+    #050b3d;
+}
+
+.ranking-hero,
+.ranking-board,
+.ranking-scoreboard {
+  background: linear-gradient(135deg, rgb(15 23 102 / 92%), rgb(8 47 125 / 88%));
+}
+
+.ranking-board {
+  background-image:
+    radial-gradient(1px 1px at 12% 20%, white 50%, transparent 51%),
+    radial-gradient(1px 1px at 80% 30%, rgb(165 243 252) 50%, transparent 51%),
+    radial-gradient(1px 1px at 45% 75%, rgb(253 224 71) 50%, transparent 51%),
+    linear-gradient(135deg, rgb(15 23 102 / 92%), rgb(8 47 125 / 88%));
+  background-size: 150px 130px, 190px 170px, 220px 180px, 100% 100%;
+}
+
+.ranking-track {
+  background: linear-gradient(160deg, rgb(30 64 175 / 90%), rgb(15 23 92 / 95%));
+}
+
+.ranking-track-glow {
+  background: linear-gradient(90deg, #facc15, #22d3ee, #c084fc, #34d399);
+  box-shadow: 0 0 18px rgb(34 211 238 / 75%);
+}
+
+.ranking-house {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 92px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 2px solid rgb(103 232 249 / 85%);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #2563eb, #4338ca);
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 25%), 0 0 14px rgb(34 211 238 / 35%);
+  color: white;
+  text-align: center;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.ranking-house:hover { transform: translateY(-4px) rotate(-1deg); filter: brightness(1.15); }
+.ranking-house strong { font-size: 0.72rem; color: rgb(224 242 254 / 85%); }
+.ranking-house-start { background: linear-gradient(145deg, #f59e0b, #ea580c); border-color: #fde047; }
+.ranking-house-finish { background: linear-gradient(145deg, #facc15, #ea580c); border-color: #fef08a; }
+
+.ranking-gatinho {
+  z-index: 5;
+  filter: drop-shadow(0 0 8px rgb(253 224 71 / 90%));
+  transition: left 900ms cubic-bezier(.22, 1, .36, 1);
+  animation: ranking-gatinho-pula 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes ranking-gatinho-pula {
+  from { transform: translateY(2px) rotate(-3deg); }
+  to { transform: translateY(-8px) rotate(3deg); }
+}
+
+.ranking-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-bottom: 1px solid rgb(165 243 252 / 18%);
+  border-radius: 0.9rem;
+  padding: 0.55rem 0.35rem;
+}
+
+.ranking-row-leader {
+  background: linear-gradient(90deg, rgb(250 204 21 / 22%), transparent);
+}

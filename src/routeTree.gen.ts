@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlunoRouteImport } from './routes/aluno'
+import { Route as RankingRouteImport } from './routes/ranking'
 import { Route as MissaoLivroIdRouteImport } from './routes/missao.$livroId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const AlunoRoute = AlunoRouteImport.update({
   path: '/aluno',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RankingRoute = RankingRouteImport.update({
+  id: '/ranking',
+  path: '/ranking',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MissaoLivroIdRoute = MissaoLivroIdRouteImport.update({
   id: '/missao/$livroId',
   path: '/missao/$livroId',
@@ -32,30 +38,34 @@ const MissaoLivroIdRoute = MissaoLivroIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aluno': typeof AlunoRoute
+  '/ranking': typeof RankingRoute
   '/missao/$livroId': typeof MissaoLivroIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aluno': typeof AlunoRoute
+  '/ranking': typeof RankingRoute
   '/missao/$livroId': typeof MissaoLivroIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/aluno': typeof AlunoRoute
+  '/ranking': typeof RankingRoute
   '/missao/$livroId': typeof MissaoLivroIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/aluno' | '/missao/$livroId'
+  fullPaths: '/' | '/aluno' | '/ranking' | '/missao/$livroId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/aluno' | '/missao/$livroId'
-  id: '__root__' | '/' | '/aluno' | '/missao/$livroId'
+  to: '/' | '/aluno' | '/ranking' | '/missao/$livroId'
+  id: '__root__' | '/' | '/aluno' | '/ranking' | '/missao/$livroId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlunoRoute: typeof AlunoRoute
+  RankingRoute: typeof RankingRoute
   MissaoLivroIdRoute: typeof MissaoLivroIdRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlunoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ranking': {
+      id: '/ranking'
+      path: '/ranking'
+      fullPath: '/ranking'
+      preLoaderRoute: typeof RankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/missao/$livroId': {
       id: '/missao/$livroId'
       path: '/missao/$livroId'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlunoRoute: AlunoRoute,
+  RankingRoute: RankingRoute,
   MissaoLivroIdRoute: MissaoLivroIdRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { buscarAluno, KEY } from "@/lib/aluno";
 
@@ -37,6 +37,7 @@ function Login() {
         <p className="mt-2 font-bold text-accent">Leia • Responda • Avance</p>
         <p className="mt-4 text-muted-foreground">Grandes histórias te levam mais longe! Biblioteca Maria Quitéria.</p>
       </div>
+      <div>
       <form onSubmit={entrar} className="glow-card p-7">
         <h2 className="text-2xl font-bold">Pronto para a missão?</h2>
         <label className="mt-5 block text-sm" htmlFor="codigo">Código do aluno</label>
@@ -52,6 +53,8 @@ function Login() {
           Começar a missão
         </button>
       </form>
+      <Link to="/ranking" className="mt-4 block text-center font-bold text-accent transition hover:text-primary">🏆 Ver ranking dos alunos</Link>
+      </div>
     </main>
   );
 }

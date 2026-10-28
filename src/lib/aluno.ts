@@ -30,6 +30,36 @@ function lerTodas(): Record<string, Partida[]> {
 export function partidasDo(codigo: string): Partida[] {
   return lerTodas()[codigo] ?? [];
 }
+
+export type LinhaRanking = {
+  nome: string;
+  codigo: string;
+  turma: string;
+  jogos: number;
+  acertos: number;
+  pontos: number;
+  casas: number;
+};
+
+export function rankingAlunos(): LinhaRanking[] {
+  const todas = lerTodas();
+  return data.alunos
+    .map((aluno) => {
+      const partidas = todas[aluno.codigo_aluno] ?? [];
+      const jogos = partidas.length;
+      return {
+        nome: aluno.nome,
+        codigo: aluno.codigo_aluno,
+        turma: aluno.turma,
+        jogos,
+        acertos: partidas.reduce((total, partida) => total + partida.acertos, 0),
+        pontos: partidas.reduce((total, partida) => total + partida.pontos, 0),
+        casas: Math.min(jogos, 9),
+      };
+    })
+    .sort((a, b) => b.acertos - a.acertos || b.pontos - a.pontos || b.jogos - a.jogos || a.nome.localeCompare(b.nome));
+}
+
 export function registrarPartida(codigo: string, p: Partida) {
   const t = lerTodas();
   const lista = t[codigo] ?? [];

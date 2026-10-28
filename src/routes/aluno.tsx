@@ -24,6 +24,7 @@ export function Cabecalho({ nome }: { nome: string }) {
         <span className="block text-xs text-muted-foreground">Área do aluno</span>
       </Link>
       <div className="flex items-center gap-3">
+        <Link to="/ranking" className="hidden rounded-full bg-secondary px-4 py-1.5 text-sm transition hover:ring-2 hover:ring-primary sm:inline-block">🏆 Ranking</Link>
         <span className="font-bold">{nome}</span>
         <button
           onClick={() => { localStorage.removeItem(KEY); navigate({ to: "/", replace: true }); }}
