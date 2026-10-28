@@ -8,6 +8,9 @@ const POSICOES_CASAS = [
   [11, 76], [24, 66], [35, 57], [46, 49], [57, 40],
   [68, 31], [79, 30], [89, 40], [82, 58], [72, 72],
 ] as const;
+const POSICOES_CRIANCAS = [
+  [27, 29], [59, 20], [29, 66], [64, 67],
+] as const;
 
 export const Route = createFileRoute("/ranking")({
   ssr: false,
@@ -71,6 +74,19 @@ function Ranking() {
                     className={`ranking-player-token ${CORES[index % CORES.length]}`}
                     style={{ left: `${left}%`, top: `${top}%` }}
                   >{aluno.nome.charAt(0).toUpperCase()}</span>
+                );
+              })}
+              {alunos.slice(0, 4).map((aluno, index) => {
+                const [left, top] = POSICOES_CRIANCAS[index]!;
+                return (
+                  <span
+                    key={`personagem-${aluno.codigo}`}
+                    className="ranking-character-name absolute"
+                    style={{ left: `${left}%`, top: `${top}%` }}
+                  >
+                    <strong>{aluno.nome}</strong>
+                    <small>{aluno.pontos} pts</small>
+                  </span>
                 );
               })}
             </div>
