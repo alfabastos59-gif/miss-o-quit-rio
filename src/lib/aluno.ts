@@ -19,3 +19,33 @@ export function livroPorId(id: string) {
 
 export const PONTOS_POR_ACERTO = 100;
 export const TOTAL_PERGUNTAS = 6;
+
+export const DIAS_ESPERA = 5;
+const PARTIDAS = "mq_partidas";
+export type Partida = { livroId: string; pontos: number; acertos: number; data: string };
+
+function lerTodas(): Record<string, Partida[]> {
+  try { return JSON.parse(localStorage.getItem(PARTIDAS) ?? "{}"); } catch { return {}; }
+}
+export function partidasDo(codigo: string): Partida[] {
+  return lerTodas()[codigo] ?? [];
+}
+export function registrarPartida(codigo: string, p: Partida) {
+  const t = lerTodas();
+  const lista = t[codigo] ?? [];
+  const antiga = lista.find((x) => x.livroId === p.livroId);
+  t[codigo] = [...lista.filter((x) => x.livroId !== p.livroId), antiga ? { ...p, data: antiga.data } : p];
+  localStorage.setItem(PARTIDAS, JSON.stringify(t));
+}
+
+/** Regras: cada livro só pode ser jogado uma vez; nova partida só após 5 dias da última. */
+export function situacao(partidas: Partida[], livroId: string | null, agora = new Date()) {
+  const ultima = partidas.reduce<Date | null>((m, p) => {
+    const d = new Date(p.data);
+    return !m || d > m ? d : m;
+  }, null);
+  const liberaEm = ultima ? new Date(ultima.getTime() + DIAS_ESPERA * 86400000) : null;
+  const jaJogado = !!livroId && partidas.some((p) => p.livroId === livroId);
+  const aguardando = !!liberaEm && agora < liberaEm;
+  return { jaJogado, aguardando, liberaEm, podeJogar: !jaJogado && !aguardando };
+}
