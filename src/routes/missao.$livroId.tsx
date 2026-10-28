@@ -65,7 +65,7 @@ function Missao() {
       </div>
     );
   } else {
-    const p = q.data.perguntas[atual];
+    const p = q.data.perguntas[atual]!;
     const respondeu = escolha !== null;
     conteudo = (
       <div>
