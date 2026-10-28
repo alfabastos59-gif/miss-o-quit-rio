@@ -53,7 +53,12 @@ function Login() {
           Começar a missão
         </button>
       </form>
-      <Link to="/ranking" className="mt-4 block text-center font-bold text-accent transition hover:text-primary">🏆 Ver ranking dos alunos</Link>
+      <Link
+        to="/ranking"
+        className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border-2 border-accent bg-secondary py-3 font-bold text-accent transition hover:bg-accent hover:text-accent-foreground"
+      >
+        🏆 Ver ranking dos alunos
+      </Link>
       </div>
     </main>
   );
