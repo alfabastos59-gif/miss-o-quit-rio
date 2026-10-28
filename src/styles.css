@@ -159,15 +159,6 @@
 .ranking-house-start { background: linear-gradient(145deg, #f59e0b, #ea580c); border-color: #fde047; }
 .ranking-house-finish { background: linear-gradient(145deg, #facc15, #ea580c); border-color: #fef08a; }
 
-.ranking-gatinho {
-  z-index: 5;
-  margin-left: -2.5rem;
-  margin-top: -3.5rem;
-  filter: drop-shadow(0 0 8px rgb(253 224 71 / 90%));
-  transition: left 900ms cubic-bezier(.22, 1, .36, 1);
-  animation: ranking-gatinho-pula 1.2s ease-in-out infinite alternate;
-}
-
 .ranking-player-token {
   position: absolute;
   z-index: 4;
@@ -183,17 +174,6 @@
   font-size: 0.8rem;
   font-weight: 800;
   box-shadow: 0 0 10px rgb(255 255 255 / 70%);
-}
-
-.ranking-cat-label {
-  z-index: 6;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-@keyframes ranking-gatinho-pula {
-  from { transform: translateY(2px) rotate(-3deg); }
-  to { transform: translateY(-8px) rotate(3deg); }
 }
 
 .ranking-row {

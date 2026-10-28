@@ -26,8 +26,6 @@ function Ranking() {
   const lider = alunos[0]!;
   const houvePartidas = alunos.some((aluno) => aluno.jogos > 0);
   const jogadoresNoTabuleiro = alunos.filter((aluno) => aluno.jogos > 0).slice(0, 5);
-  const casaDoLider = houvePartidas ? lider.casas : 0;
-  const [liderLeft, liderTop] = POSICOES_CASAS[casaDoLider] ?? POSICOES_CASAS[0];
 
   return (
     <main className="ranking-page min-h-screen px-4 py-5 sm:px-6">
@@ -75,16 +73,6 @@ function Ranking() {
                   >{aluno.nome.charAt(0).toUpperCase()}</span>
                 );
               })}
-              <img
-                src="/gatinho-missao.png"
-                alt={`Gatinho na casa ${casaDoLider}, posição de ${lider.nome}`}
-                className="ranking-gatinho pointer-events-none absolute h-16 w-14 object-contain sm:h-24 sm:w-20"
-                style={{ left: `${liderLeft}%`, top: `${liderTop}%` }}
-              />
-              <span
-                className="ranking-cat-label absolute rounded-full bg-blue-950/90 px-2 py-1 text-[10px] font-bold text-white sm:text-xs"
-                style={{ left: `${liderLeft}%`, top: `calc(${liderTop}% + 2rem)` }}
-              >{houvePartidas ? `${lider.nome} • casa ${casaDoLider}` : "Começo da missão"}</span>
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-center gap-5 text-sm text-cyan-100/80">
