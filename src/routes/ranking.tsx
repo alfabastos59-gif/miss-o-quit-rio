@@ -4,6 +4,10 @@ import { rankingAlunos } from "@/lib/aluno";
 
 const TOTAL_CASAS = 10;
 const CORES = ["bg-primary", "bg-accent", "bg-fuchsia-400", "bg-emerald-400", "bg-blue-400"];
+const POSICOES_CASAS = [
+  [11, 76], [24, 66], [35, 57], [46, 49], [57, 40],
+  [68, 31], [79, 30], [89, 40], [82, 58], [72, 72],
+] as const;
 
 export const Route = createFileRoute("/ranking")({
   ssr: false,
@@ -21,7 +25,9 @@ function Ranking() {
   const alunos = useMemo(() => rankingAlunos(), []);
   const lider = alunos[0]!;
   const houvePartidas = alunos.some((aluno) => aluno.jogos > 0);
-  const casasDaTrilha = Array.from({ length: TOTAL_CASAS }, (_, casa) => casa);
+  const jogadoresNoTabuleiro = alunos.filter((aluno) => aluno.jogos > 0).slice(0, 5);
+  const casaDoLider = houvePartidas ? lider.casas : 0;
+  const [liderLeft, liderTop] = POSICOES_CASAS[casaDoLider] ?? POSICOES_CASAS[0];
 
   return (
     <main className="ranking-page min-h-screen px-4 py-5 sm:px-6">
@@ -55,36 +61,30 @@ function Ranking() {
               <span className="rounded-full bg-cyan-300/20 px-3 py-1 text-xs font-bold text-cyan-100">10 casas</span>
             </div>
 
-            <div className="ranking-track relative overflow-hidden rounded-3xl border border-blue-300/40 p-4 sm:p-7">
-              <div className="ranking-track-glow absolute inset-x-7 top-1/2 h-2 -translate-y-1/2 rounded-full" />
-              <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
-                {casasDaTrilha.map((casa) => {
-                  const jogadores = alunos.filter((aluno) => aluno.casas === casa && aluno.jogos > 0).slice(0, 2);
-                  return (
-                    <div key={casa} className={`ranking-house ${casa === 0 ? "ranking-house-start" : ""} ${casa === TOTAL_CASAS - 1 ? "ranking-house-finish" : ""}`}>
-                      <span className="text-2xl sm:text-3xl">{casa === 0 ? "🚀" : casa === TOTAL_CASAS - 1 ? "🏆" : casa % 3 === 0 ? "📖" : casa % 3 === 1 ? "⭐" : "❓"}</span>
-                      <strong>Casa {casa}</strong>
-                      {jogadores.length > 0 && (
-                        <div className="mt-1 flex -space-x-2">
-                          {jogadores.map((jogador, i) => (
-                            <span key={jogador.codigo} title={jogador.nome} className={`flex h-7 w-7 items-center justify-center rounded-full border-2 border-blue-950 text-xs ${CORES[i % CORES.length]}`}>
-                              {jogador.nome.charAt(0).toUpperCase()}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-              {houvePartidas && (
-                <img
-                  src="/gatinho-missao.png"
-                  alt="Gatinho avançando no tabuleiro"
-                  className="ranking-gatinho pointer-events-none absolute bottom-2 h-20 w-16 object-contain sm:h-24 sm:w-20"
-                  style={{ left: `calc(${(lider.casas / (TOTAL_CASAS - 1)) * 100}% - 2.5rem)` }}
-                />
-              )}
+            <div className="ranking-artboard relative overflow-hidden rounded-3xl border border-blue-300/40">
+              <img src="/tabuleiro-missao.png" alt="Tabuleiro espacial da Missão Quitério" className="block h-auto w-full" />
+              {jogadoresNoTabuleiro.map((aluno, index) => {
+                const [left, top] = POSICOES_CASAS[aluno.casas] ?? POSICOES_CASAS[0];
+                if (index === 0) return null;
+                return (
+                  <span
+                    key={aluno.codigo}
+                    title={`${aluno.nome} — casa ${aluno.casas}`}
+                    className={`ranking-player-token ${CORES[index % CORES.length]}`}
+                    style={{ left: `${left}%`, top: `${top}%` }}
+                  >{aluno.nome.charAt(0).toUpperCase()}</span>
+                );
+              })}
+              <img
+                src="/gatinho-missao.png"
+                alt={`Gatinho na casa ${casaDoLider}, posição de ${lider.nome}`}
+                className="ranking-gatinho pointer-events-none absolute h-16 w-14 object-contain sm:h-24 sm:w-20"
+                style={{ left: `${liderLeft}%`, top: `${liderTop}%` }}
+              />
+              <span
+                className="ranking-cat-label absolute rounded-full bg-blue-950/90 px-2 py-1 text-[10px] font-bold text-white sm:text-xs"
+                style={{ left: `${liderLeft}%`, top: `calc(${liderTop}% + 2rem)` }}
+              >{houvePartidas ? `${lider.nome} • casa ${casaDoLider}` : "Começo da missão"}</span>
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-center gap-5 text-sm text-cyan-100/80">
