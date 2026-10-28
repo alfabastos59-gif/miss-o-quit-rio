@@ -35,6 +35,7 @@ export type LinhaRanking = {
   nome: string;
   codigo: string;
   turma: string;
+  avatarUrl: string | null;
   jogos: number;
   acertos: number;
   pontos: number;
@@ -51,6 +52,7 @@ export function rankingAlunos(): LinhaRanking[] {
         nome: aluno.nome,
         codigo: aluno.codigo_aluno,
         turma: aluno.turma,
+        avatarUrl: aluno.avatar_url ?? null,
         jogos,
         acertos: partidas.reduce((total, partida) => total + partida.acertos, 0),
         pontos: partidas.reduce((total, partida) => total + partida.pontos, 0),

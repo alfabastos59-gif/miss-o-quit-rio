@@ -82,7 +82,7 @@ function Ranking() {
                     title={`${aluno.nome} — casa ${aluno.casas}`}
                     className={`ranking-player-token ${CORES[index % CORES.length]}`}
                     style={{ left: `${left}%`, top: `${top}%` }}
-                  >{aluno.nome.charAt(0).toUpperCase()}</span>
+                  >{aluno.avatarUrl ? <img src={aluno.avatarUrl} alt="" className="ranking-avatar-image" /> : aluno.nome.charAt(0).toUpperCase()}</span>
                 );
               })}
               {alunos.slice(0, 4).map((aluno, index) => {
@@ -93,6 +93,7 @@ function Ranking() {
                     className="ranking-character-name absolute"
                     style={{ left: `${left}%`, top: `${top}%` }}
                   >
+                    {aluno.avatarUrl ? <img src={aluno.avatarUrl} alt={`Avatar de ${aluno.nome}`} className="ranking-avatar-image" /> : null}
                     <strong>{aluno.nome}</strong>
                     <small>{aluno.pontos} pts</small>
                   </span>
@@ -116,7 +117,9 @@ function Ranking() {
               {alunos.slice(0, 10).map((aluno, index) => (
                 <div key={aluno.codigo} className={`ranking-row ${index === 0 ? "ranking-row-leader" : ""}`}>
                   <span className="w-7 text-center font-display text-xl font-extrabold text-cyan-100">{index + 1}</span>
-                  <span className={`flex h-10 w-10 items-center justify-center rounded-full text-lg ${CORES[index % CORES.length]}`}>{index === 0 ? "👑" : aluno.nome.charAt(0).toUpperCase()}</span>
+                  <span className={`flex h-10 w-10 items-center justify-center overflow-hidden rounded-full text-lg ${CORES[index % CORES.length]}`}>
+                    {aluno.avatarUrl ? <img src={aluno.avatarUrl} alt={`Avatar de ${aluno.nome}`} className="ranking-avatar-image" /> : index === 0 ? "👑" : aluno.nome.charAt(0).toUpperCase()}
+                  </span>
                   <span className="min-w-0 flex-1">
                     <strong className="block truncate text-white">{aluno.nome}</strong>
                     <small className="text-cyan-100/60">{aluno.jogos} {aluno.jogos === 1 ? "jogo" : "jogos"} • casa {aluno.casas}</small>

@@ -4,100 +4,115 @@
    "id": "c40e6437-6422-4735-9a07-2cd716a03fce",
    "nome": "Adrielly",
    "turma": "1 º B",
-   "codigo_aluno": "ADR0007"
+   "codigo_aluno": "ADR0007",
+   "avatar_url": null
   },
   {
    "id": "stu_1789059674936_4vidl",
    "nome": "Allaiany",
    "turma": "2º A",
-   "codigo_aluno": "ALL0014"
+   "codigo_aluno": "ALL0014",
+   "avatar_url": null
   },
   {
    "id": "f0c6ebae-9d3a-42bd-9847-88c736145e04",
    "nome": "Amilton Luan",
    "turma": "9º B",
-   "codigo_aluno": "AMI0002"
+   "codigo_aluno": "AMI0002",
+   "avatar_url": null
   },
   {
    "id": "alu_1",
    "nome": "Ana Beatriz Silveira",
    "turma": "9º Ano A",
-   "codigo_aluno": "202401"
+   "codigo_aluno": "202401",
+   "avatar_url": null
   },
   {
    "id": "5f79aabd-92e7-4e60-aaa7-deac5a4f6d9c",
    "nome": "Clô (pedro)",
    "turma": "9 a",
-   "codigo_aluno": "CLO0004"
+   "codigo_aluno": "CLO0004",
+   "avatar_url": null
   },
   {
    "id": "a5736678-5fda-4863-89b5-97563dbc19be",
    "nome": "Geisiane Alves",
    "turma": "1 ano A",
-   "codigo_aluno": "GEI0002"
+   "codigo_aluno": "GEI0002",
+   "avatar_url": null
   },
   {
    "id": "ea0fd93c-146d-4f43-add9-ccf2d52986be",
    "nome": "Gustavo Oliveira",
    "turma": "1 º INT",
-   "codigo_aluno": "GUS0001"
+   "codigo_aluno": "GUS0001",
+   "avatar_url": null
   },
   {
    "id": "fd05af8c-632c-4b8d-b3f5-ab49e9d2bc62",
    "nome": "jennifer freitas",
    "turma": "3ºb",
-   "codigo_aluno": "JEN0006"
+   "codigo_aluno": "JEN0006",
+   "avatar_url": null
   },
   {
    "id": "8c98f625-87fa-4866-95ea-25a291cde1c3",
    "nome": "Kailan",
    "turma": "1ºA",
-   "codigo_aluno": "KAI0009"
+   "codigo_aluno": "KAI0009",
+   "avatar_url": null
   },
   {
    "id": "0fbd844c-14e4-4275-a3e3-db3063dff6b3",
    "nome": "Kalil Lopes",
    "turma": "2 º A",
-   "codigo_aluno": "KAL0003"
+   "codigo_aluno": "KAL0003",
+   "avatar_url": null
   },
   {
    "id": "de37c66a-6c2f-4301-9844-6d34499beda2",
    "nome": "Kemilly  Santana",
    "turma": "2º A",
-   "codigo_aluno": "KEM0008"
+   "codigo_aluno": "KEM0008",
+   "avatar_url": null
   },
   {
    "id": "stu_1789060054398_ioi6e",
    "nome": "Mariana Ribeiro",
    "turma": "2 º A",
-   "codigo_aluno": "MAR0015"
+   "codigo_aluno": "MAR0015",
+   "avatar_url": null
   },
   {
    "id": "ff64951b-f0ba-4de7-9bf1-e8147a0b557c",
    "nome": "Professora Thaís",
    "turma": "turma 1000",
-   "codigo_aluno": "PRO0003"
+   "codigo_aluno": "PRO0003",
+   "avatar_url": null
   },
   {
    "id": "3687b1eb-2ac3-46a1-b2ae-2f9084f03110",
    "nome": "Ruan Santos da Silva",
    "turma": "1º A",
-   "codigo_aluno": "RUA0004"
+   "codigo_aluno": "RUA0004",
+   "avatar_url": null
   },
   {
    "id": "11447773-1d14-4b49-99fd-12a605bd262c",
    "nome": "Thalles andrey",
    "turma": "2 º adm",
-   "codigo_aluno": "THA0005"
+   "codigo_aluno": "THA0005",
+   "avatar_url": null
   },
   {
    "id": "c8f48da7-d4fb-44a2-85df-ebd9118c5229",
    "nome": "Veronica Gonçalves",
    "turma": "1 ano A",
-   "codigo_aluno": "VER0001"
+   "codigo_aluno": "VER0001",
+   "avatar_url": null
   }
- ],
- "emprestimos": [
+ ], "emprestimos": [
   {
    "id": "054161ac-7fbe-4b75-a0e7-6c28a49ad486",
    "aluno_id": "8c98f625-87fa-4866-95ea-25a291cde1c3",
