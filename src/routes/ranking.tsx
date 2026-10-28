@@ -9,7 +9,7 @@ const POSICOES_CASAS = [
   [68, 31], [79, 30], [89, 40], [82, 58], [72, 72],
 ] as const;
 const POSICOES_CRIANCAS = [
-  [27, 29], [59, 20], [29, 66], [64, 67],
+  [27, 38], [59, 29], [29, 76], [64, 77],
 ] as const;
 
 export const Route = createFileRoute("/ranking")({
