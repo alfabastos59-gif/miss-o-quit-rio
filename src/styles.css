@@ -192,6 +192,16 @@
   text-align: center;
   box-shadow: 0 0 12px rgb(34 211 238 / 65%);
   pointer-events: none;
+  transition: left 900ms cubic-bezier(.22, 1, .36, 1), top 900ms cubic-bezier(.22, 1, .36, 1), box-shadow 300ms ease;
+}
+
+.ranking-character-name::after {
+  content: "🚗";
+  position: absolute;
+  right: -0.75rem;
+  bottom: -0.65rem;
+  font-size: 1rem;
+  filter: drop-shadow(0 0 4px rgb(253 224 71 / 90%));
 }
 
 .ranking-character-name strong {

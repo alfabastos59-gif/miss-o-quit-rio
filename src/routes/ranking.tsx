@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import { rankingAlunos } from "@/lib/aluno";
 
 const TOTAL_CASAS = 10;
@@ -25,7 +25,16 @@ export const Route = createFileRoute("/ranking")({
 });
 
 function Ranking() {
-  const alunos = useMemo(() => rankingAlunos(), []);
+  const [alunos, setAlunos] = useState(rankingAlunos);
+  useEffect(() => {
+    const atualizar = () => setAlunos(rankingAlunos());
+    window.addEventListener("storage", atualizar);
+    const relogio = window.setInterval(atualizar, 1000);
+    return () => {
+      window.removeEventListener("storage", atualizar);
+      window.clearInterval(relogio);
+    };
+  }, []);
   const lider = alunos[0]!;
   const houvePartidas = alunos.some((aluno) => aluno.jogos > 0);
   const jogadoresNoTabuleiro = alunos.filter((aluno) => aluno.jogos > 0).slice(0, 5);
