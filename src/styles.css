@@ -80,6 +80,22 @@
   box-shadow: 0 0 24px color-mix(in oklch, var(--accent) 35%, transparent);
 }
 
+.login-card {
+  background: linear-gradient(
+    160deg,
+    color-mix(in oklch, var(--card) 92%, transparent),
+    color-mix(in oklch, var(--background) 88%, transparent)
+  );
+  border: 3px solid var(--primary);
+  border-radius: var(--radius-2xl);
+  box-shadow:
+    0 0 0 4px color-mix(in oklch, var(--primary) 25%, transparent),
+    0 0 44px color-mix(in oklch, var(--primary) 55%, transparent),
+    0 0 90px color-mix(in oklch, var(--accent) 35%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+
 @keyframes missao-gatinho-caminha {
   0% { left: 0.5rem; transform: translateY(2px) rotate(-2deg); }
   50% { left: calc(100% - 5.5rem); transform: translateY(-3px) rotate(2deg); }
