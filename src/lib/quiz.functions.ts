@@ -38,7 +38,7 @@ export const gerarPerguntas = createServerFn({ method: "POST" })
         method: "POST",
         headers: usandoLovable
           ? {
-              "Lovable-API-Key": chaveLovable,
+              "Lovable-API-Key": chaveLovable!,
               "X-Lovable-AIG-SDK": "fetch",
               "Content-Type": "application/json",
             }
