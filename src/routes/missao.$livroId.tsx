@@ -65,9 +65,9 @@ function Missao() {
         <div className="relative mx-auto h-36 max-w-xl overflow-hidden rounded-2xl bg-secondary/70">
           <div className="absolute inset-x-6 bottom-6 h-1 rounded-full bg-accent/30" />
           <img
-            src="/gatinho-missao.png"
+            src={gatinhoMissao.url}
             alt="Gatinho caminhando enquanto prepara a missão"
-            className="missao-gatinho absolute bottom-5 left-2 h-28 w-20 object-contain"
+            className="missao-gatinho absolute bottom-5 left-2 h-28 w-24 object-contain"
           />
         </div>
         <div className="relative mt-5 h-3 overflow-hidden rounded-full bg-secondary">
