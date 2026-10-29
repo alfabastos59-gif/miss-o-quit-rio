@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { gerarPerguntas } from "@/lib/quiz.functions";
 import { KEY, livroPorId, partidasDo, PONTOS_POR_ACERTO, registrarPartida, situacao, TOTAL_PERGUNTAS } from "@/lib/aluno";
+import gatinhoMissao from "@/assets/gatinho-missao-novo.png.asset.json";
 import { Cabecalho, useAluno } from "./aluno";
 
 export const Route = createFileRoute("/missao/$livroId")({
